@@ -9,11 +9,11 @@ import sys
 import matplotlib.pyplot as plt
 import mediapipe as mp
 
-from function import (cal_error, correctional_list, mint_coordinate_error, nine_to_three,
+from package.function import (cal_error, correctional_list, mint_coordinate_error, nine_to_three,
                       scaling, rotation, plot_landmarks, translation,
                       Correct_anomalies)
-from human_pose_estimation import holistic_csv
-from editvideo import segmantation ,crop_movie, cut_movie
+from package.human_pose_estimation import holistic_csv
+from package.editvideo import segmantation ,crop_movie, cut_movie
 
 
 def coaching_system():
@@ -54,7 +54,7 @@ def coaching_system():
     error = cal_error(C_user, C_copycat, k)
     elist = correctional_list(error, THETA)
     #for t in range(len(C_copycat)):
-    for t in range(0, len(C_copycat), 3):
+    for t in range(0, len(C_copycat), 10):
     #for t in range(len(C_copycat)-5, len(C_copycat)):
         plot_landmarks(C_user, C_copycat, t, k, elist)
 
