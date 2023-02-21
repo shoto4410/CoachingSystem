@@ -22,11 +22,11 @@ def coaching_system():
     THETA = float(sys.argv[3])
     X1, Y1, X2, Y2 = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6]), int(sys.argv[7])
 
-    # segmantation(FILENAME_USER, X1, Y1, X2, Y2)
-    # holistic_csv(FILENAME_USER)
+    segmantation(FILENAME_USER, X1, Y1, X2, Y2)
+    holistic_csv(FILENAME_USER)
     # df_user = pd.read_excel('csv/copycat/copycat.xlsx', index_col=0).values
     df_user = pd.read_excel('csv/user/'+FILENAME_USER+'.xlsx', index_col=0).values
-    df_copycat = pd.read_excel('csv/copy/'+FILENAME_COPYCAT+'.xlsx', index_col=0).values
+    df_copycat = pd.read_excel('csv/copycat/'+FILENAME_COPYCAT+'.xlsx', index_col=0).values
 
     #numpy配列に変更
     C_user = nine_to_three(df_user)

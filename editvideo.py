@@ -91,13 +91,13 @@ def create_movie(FILENAME, X1, Y1, X2, Y2):
 # image size is (1280, 720)
 # segmantation('user', 600, 0, 1100, 650)
 
-img = cv2.imread('data/images/video_img_000.jpg')
-print(img.size)
-print(720*1280)
+# img = cv2.imread('data/images/video_img_000.jpg')
+# print(img.size)
+# print(720*1280)
 
-X1, Y1, X2, Y2 = 600, 0, 1100, 650
-width, height = 1280, 720
-for i in range(width):
-    for j in range(height):
-        if i > X1 and i < X2 and j > Y1 and j < Y2:
-            a = 0
+# X1, Y1, X2, Y2 = 600, 0, 1100, 650
+# width, height = 1280, 720
+# for i in range(width):
+#     for j in range(height):
+#         if i > X1 and i < X2 and j > Y1 and j < Y2:
+#             a = 0

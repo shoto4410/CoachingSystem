@@ -10,7 +10,7 @@ contourpy==1.0.5
 cycler==0.11.0
 debugpy==1.6.5
 decorator==4.4.2
-dlib==19.24.0
+# dlib==19.24.0
 entrypoints==0.4
 et-xmlfile==1.1.0
 excel2json-3==0.1.6

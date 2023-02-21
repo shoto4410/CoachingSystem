@@ -10,6 +10,7 @@ source myenv/bin/activate (Mac)
 必要なライブラリのインストールｔ
 pip install -r requirements.txt
 
+
 ディレクトリ構成
 
 CoachingSystem
