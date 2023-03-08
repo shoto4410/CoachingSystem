@@ -36,8 +36,8 @@ def segmantation(FILENAME, X1, Y1, X2, Y2):
 
     create_movie(FILENAME, X1, Y1, X2, Y2)
     # imgファイルを削除　→ 後の比較の際に混ざらないようにするため
-    # for f in os.listdir(IMG_PATH):
-    #     os.remove(os.path.join(IMG_PATH, f))
+    for f in os.listdir(IMG_PATH):
+        os.remove(os.path.join(IMG_PATH, f))
     
     print('画像処理終了')
 
@@ -64,9 +64,10 @@ def save_all_frames(video_path, dir_path, basename, ext='jpg'):
             return
 
 
-#初めのフレームを変更後、静止画(jpg)から動画(mp4)に変換
+#初めの方のフレームを変更後、静止画(jpg)から動画(mp4)に変換
 def create_movie(FILENAME, X1, Y1, X2, Y2):
-    width, height = 1280,  720
+    print(X1, Y1, X2, Y2)
+    width, height = 1280, 720
     size=(width, height)#サイズ指定
     fourcc = cv2.VideoWriter_fourcc('m','p','4','v')#保存形式
     save = cv2.VideoWriter('data/edit_movie/'+FILENAME+'.mp4',fourcc,30.0,size)#動画を保存する形を作成
@@ -78,26 +79,16 @@ def create_movie(FILENAME, X1, Y1, X2, Y2):
         img = img_list[i]
         img = cv2.imread(img)
 
-        if i == 0:
-            # cv2.rectangle(img=img, pt1=(X1, Y1), pt2=(X2, Y2), color=(0,0,0), thickness=-1)
-            cv2.rectangle(img=img, pt1=(0,0),  pt2=(width, Y1), color=(0,0,0), thickness=-1)
-            cv2.rectangle(img=img, pt1=(0,Y1),  pt2=(X1,Y2), color=(0,0,0), thickness=-1)
-            cv2.rectangle(img=img, pt1=(X2,Y1),  pt2=(width, Y2), color=(0,0,0), thickness=-1)
-            cv2.rectangle(img=img, pt1=(0,Y2),  pt2=(width, height), color=(0,0,0), thickness=-1)
-
+        if i >= 0 and i <= 20:
+            # cv2.rectangle(img=img, pt1=(0,0),  pt2=(width, Y1), color=(0,0,0), thickness=-1)
+            # cv2.rectangle(img=img, pt1=(0,Y1),  pt2=(X1,Y2), color=(0,0,0), thickness=-1)
+            # cv2.rectangle(img=img, pt1=(X2,Y1),  pt2=(width, Y2), color=(0,0,0), thickness=-1)
+            # cv2.rectangle(img=img, pt1=(0,Y2),  pt2=(width, height), color=(0,0,0), thickness=-1)
+            
+            img[0:width, 0:Y1] = 0
+            img[0:X1, Y1:Y2] = 0
+            img[X2:width, Y1:Y2] = 0
+            img[0:width, Y2:height] = 0
         save.write(img)
 
     save.release()
-# image size is (1280, 720)
-# segmantation('user', 600, 0, 1100, 650)
-
-# img = cv2.imread('data/images/video_img_000.jpg')
-# print(img.size)
-# print(720*1280)
-
-# X1, Y1, X2, Y2 = 600, 0, 1100, 650
-# width, height = 1280, 720
-# for i in range(width):
-#     for j in range(height):
-#         if i > X1 and i < X2 and j > Y1 and j < Y2:
-#             a = 0

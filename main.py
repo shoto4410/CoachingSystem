@@ -13,7 +13,7 @@ from package.function import (cal_error, correctional_list, mint_coordinate_erro
                       scaling, rotation, plot_landmarks, translation,
                       Correct_anomalies)
 from package.human_pose_estimation import holistic_csv
-from package.editvideo import segmantation ,crop_movie, cut_movie
+from package.editvideo import segmantation
 
 
 def coaching_system():
@@ -54,7 +54,7 @@ def coaching_system():
     error = cal_error(C_user, C_copycat, k)
     elist = correctional_list(error, THETA)
     #for t in range(len(C_copycat)):
-    for t in range(0, len(C_copycat), 10):
+    for t in range(0, len(C_copycat), 3):
     #for t in range(len(C_copycat)-5, len(C_copycat)):
         plot_landmarks(C_user, C_copycat, t, k, elist)
 

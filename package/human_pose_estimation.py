@@ -98,7 +98,7 @@ def holistic_csv(FILENAME):
                 data_land2 = np.hstack((data_land2,keydata))
             data_land2 = data_land2[:,3:]
             data_land = np.vstack((data_land,data_land2))
-            cv2.imshow('MediaPipe Holistic', image)
+            # cv2.imshow('MediaPipe Holistic', image)
             if cv2.waitKey(5) & 0xFF == 27:
                 break
     cap.release()
