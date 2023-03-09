@@ -33,6 +33,8 @@ CoachingSystem
 ├── main.py　　　　　　　　　　　<- 実行スクリプト
 └── requirements.txt　　　　　　<- 環境構築用ファイル
 
+手本者の座標データはデフォルトで入力済みです。
+
 $ python main.py [利用者のファイル名] [手本者のファイル名] 閾値　\
 　X1 Y1 X2 Y2
 
